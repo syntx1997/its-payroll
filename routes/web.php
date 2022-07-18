@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HRDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('/dashboard')->group(function (){
+
+    // HR Officer
+    Route::prefix('/hr')->group(function (){
+        Route::get('/index', [HRDashboardController::class, 'index']);
+    });
+
 });
