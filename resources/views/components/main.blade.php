@@ -6,7 +6,7 @@
         <meta name="description" content="Web-Based Payroll System for Independent Telemarketing Services">
         <meta name="author" content="PUP Bansud Branch Batch 2022">
         <meta name="robots" content="noindex, nofollow">
-        <title>{{ $PageData->title ?? env('APP_NAME') }}</title>
+        <title>{{ $title ?? env('APP_NAME') }}</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
@@ -76,6 +76,6 @@
     <!-- Custom JS -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/global.js') }}"></script>
-    <script src="{{ $PageData->js ?? '' }}"></script>
+    <script src="{{ $js ?? '' }}"></script>
     </body>
 </html>

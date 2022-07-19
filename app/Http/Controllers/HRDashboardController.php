@@ -9,9 +9,10 @@ class HRDashboardController extends Controller
     public function index() {
         $PageData = [
             'title' => 'HR Dashboard',
-            'js' => asset('')
+            'js' => asset(''),
+            'dashboardLink' => '/dashboard/hr/'
         ];
 
-        return view('pages.hr.index', compact('PageData'));
+        return view('pages.hr.index', $PageData);
     }
 }

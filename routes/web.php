@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HRDashboardController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +18,25 @@ use App\Http\Controllers\HRDashboardController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
-Route::prefix('/dashboard')->group(function (){
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+Route::middleware('auth')->prefix('/dashboard')->group(function (){
 
     // HR Officer
     Route::prefix('/hr')->group(function (){
         Route::get('/index', [HRDashboardController::class, 'index']);
+    });
+
+});
+
+// APIs
+Route::prefix('/func')->group(function (){
+
+    // authentication
+    Route::prefix('/auth')->group(function (){
+        Route::post('/login', [UserController::class, 'login']);
     });
 
 });

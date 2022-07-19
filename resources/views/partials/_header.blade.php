@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="header-left">
         <a href="/" class="logo">
-            <img src="{{ asset('img/logo.png') }}" width="40" height="40" alt="">
+            <span class="font-weight-bold text-white">ITS</span>
         </a>
     </div>
     <!-- /Logo -->
@@ -18,7 +18,7 @@
 
     <!-- Header Title -->
     <div class="page-title-box">
-        <h3>Independent Telemarketing Services</h3>
+        <h3>PAYROLL SYSTEM</h3>
     </div>
     <!-- /Header Title -->
 
@@ -28,9 +28,9 @@
     <ul class="nav user-menu">
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt="">
+							<span class="user-img"><img src="{{ asset('img/profiles/avatar-21.jpg') }}" alt="">
 							<span class="status online"></span></span>
-                <span>Soeng Souy</span>
+                <span>{{ auth()->user()->name }}</span>
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="profile.html">My Profile</a>
@@ -47,7 +47,7 @@
         <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="profile.html">My Profile</a>
             <a class="dropdown-item" href="settings.html">Settings</a>
-            <a class="dropdown-item" href="login.html">Logout</a>
+            <a class="dropdown-item" href="#logout" id="logout-btn">Logout</a>
         </div>
     </div>
     <!-- /Mobile Menu -->
