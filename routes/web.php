@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HRDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DeductionCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +18,27 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    switch (auth()->user()->type) {
+        case 'HR':
+            return redirect('/dashboard/hr/index');
+            break;
+        case 'Employee':
+            return redirect('/dashboard/employee/index');
+            break;
+        default:
+            break;
+    }
 })->middleware('auth');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 
 Route::middleware('auth')->prefix('/dashboard')->group(function (){
 
     // HR Officer
     Route::prefix('/hr')->group(function (){
         Route::get('/index', [HRDashboardController::class, 'index']);
+        Route::get('/employees', [HRDashboardController::class, 'employees']);
+        Route::get('/deduction-categories', [HRDashboardController::class, 'deduction_categories']);
     });
 
 });
@@ -37,6 +49,15 @@ Route::prefix('/func')->group(function (){
     // authentication
     Route::prefix('/auth')->group(function (){
         Route::post('/login', [UserController::class, 'login']);
+        Route::get('/logout', [UserController::class, 'logout']);
+    });
+
+    // Deduction Category
+    Route::prefix('/deduction-category')->group(function (){
+        Route::post('/add', [DeductionCategoryController::class, 'add']);
+        Route::get('/get-all', [DeductionCategoryController::class, 'get_all']);
+        Route::put('/edit', [DeductionCategoryController::class, 'edit']);
+        Route::delete('/delete', [DeductionCategoryController::class, 'delete']);
     });
 
 });

@@ -6,6 +6,7 @@
         <meta name="description" content="Web-Based Payroll System for Independent Telemarketing Services">
         <meta name="author" content="PUP Bansud Branch Batch 2022">
         <meta name="robots" content="noindex, nofollow">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>{{ $title ?? env('APP_NAME') }}</title>
 
         <!-- Favicon -->
@@ -16,6 +17,9 @@
 
         <!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
+        <!-- Datatable CSS -->
+        <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
 
         <!-- Lineawesome CSS -->
         <link rel="stylesheet" href="{{ asset('css/line-awesome.min.css') }}">
@@ -72,6 +76,13 @@
     <script src="{{ asset('plugins/morris/morris.min.js') }}"></script>
     <script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('js/chart.js') }}"></script>
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Datatable JS -->
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('js/app.js') }}"></script>
