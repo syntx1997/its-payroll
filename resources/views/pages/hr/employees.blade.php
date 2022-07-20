@@ -49,12 +49,13 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="form-group row">
-                                <div class="col-sm-12 col-md-3 col-lg-3 text-center">
-                                    <div class="employee-avatar">
-                                        <img src="{{ asset('img/user.jpg') }}" style="width: 100px">
-                                    </div>
+                                <div class="col-sm-12 col-md-3 col-lg-3">
+                                    <label style="bottom: 0; position: absolute">Avatar</label>
                                 </div>
                                 <div class="col-sm-12 col-md-9 col-lg-9">
+                                    <div class="employee-avatar mb-3">
+                                        <img src="{{ asset('img/user.jpg') }}" style="width: 100px">
+                                    </div>
                                     <input type="file" name="avatar" class="form-control-file">
                                 </div>
                             </div>
@@ -158,11 +159,12 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="form-group row">
                                 <div class="col-sm-12 col-md-3 col-lg-3 text-center">
-                                    <div class="employee-avatar">
-                                        <img src="{{ asset('img/user.jpg') }}" style="width: 100px">
-                                    </div>
+                                    <label style="bottom: 0; position: absolute">Avatar</label>
                                 </div>
                                 <div class="col-sm-12 col-md-9 col-lg-9">
+                                    <div class="employee-avatar mb-3">
+                                        <img src="{{ asset('img/user.jpg') }}" style="width: 100px">
+                                    </div>
                                     <input type="file" name="avatar" class="form-control-file">
                                 </div>
                             </div>
