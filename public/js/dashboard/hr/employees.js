@@ -109,6 +109,60 @@ $(function (){
             reader.readAsDataURL(this.files[0]);
         }
     });
+
+    editForm.on('submit', function (e){
+        e.preventDefault();
+        $.ajax({
+            url: api + 'edit',
+            type: 'POST',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            dataType: 'JSON',
+            success: function (res){
+                resetForm(editForm);
+                hideModal(editModal);
+                reloadDataTable(employeesTable);
+            },
+            error: function (err){
+                const errJSON = err.responseJSON;
+                if(errJSON.errors) {
+                    const error = errJSON.errors;
+                    fieldValidation(formInput(editForm, 'input', 'avatar'), error.avatar);
+                    fieldValidation(formInput(editForm, 'input', 'firstname'), error.firstname);
+                    fieldValidation(formInput(editForm, 'input', 'middlename'), error.middlename);
+                    fieldValidation(formInput(editForm, 'input', 'lastname'), error.lastname);
+                    fieldValidation(formInput(editForm, 'select', 'gender'), error.gender);
+                    fieldValidation(formInput(editForm, 'input', 'birthday'), error.birthday);
+                    fieldValidation(formInput(editForm, 'textarea', 'address'), error.address);
+                    fieldValidation(formInput(editForm, 'input', 'designation'), error.designation);
+                    fieldValidation(formInput(editForm, 'input', 'email'), error.email);
+                    fieldValidation(formInput(editForm, 'input', 'contact'), error.contact);
+                    fieldValidation(formInput(editForm, 'input', 'password'), error.password);
+                }
+            },
+            beforeSend: function (){
+                removeInputValidationErrors();
+                submitBtnBeforeSend(editSubmitBtn, 'Editing')
+            },
+            complete: function (){
+                submitBtnAfterSend(editSubmitBtn, 'Edit');
+            }
+        });
+    });
+
+    editForm.find('input[name="avatar"]').on('change', function (){
+        if(this.files && this.files[0]){
+            const reader = new FileReader();
+
+            reader.onload = function (e){
+                editForm.find('.employee-avatar img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
 });
 
 $(document).on('click', '#edit-btn', function (){

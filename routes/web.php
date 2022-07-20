@@ -65,6 +65,7 @@ Route::prefix('/func')->group(function (){
     Route::prefix('/employee')->group(function (){
         Route::post('/add', [EmployeeController::class, 'add']);
         Route::get('/get-all', [EmployeeController::class, 'get_all']);
+        Route::post('/edit', [EmployeeController::class, 'edit']);
     });
 
 });

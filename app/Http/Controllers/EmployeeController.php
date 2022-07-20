@@ -121,4 +121,45 @@ class EmployeeController extends Controller
 
         return response(['data' => $data], 201);
     }
+
+    public function edit(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required',
+            'middlename' => 'required',
+            'lastname' => 'required',
+            'gender' => 'required',
+            'birthday' => 'required',
+            'address' => 'required',
+            'designation' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'id' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return response(['errors' => $validator->errors()], 401);
+        }
+
+        $fields = [
+            'firstname' => $request->firstname,
+            'middlename' => $request->middlename,
+            'lastname' => $request->lastname,
+            'gender' => $request->gender,
+            'birthday' => $request->birthday,
+            'address' => $request->address,
+            'designation' => $request->designation,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'id' => $request->id
+        ];
+
+        if($request->has('avatar')) {
+            $fields['avatar'] = $request->file('avatar')->store('avatar', 'public');
+        }
+
+        $employee = Employee::find($fields['id']);
+        $employee->update($fields);
+
+        return response(['message' => 'Employee Updated Successfully!']);
+    }
 }
