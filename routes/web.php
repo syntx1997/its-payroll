@@ -5,6 +5,7 @@ use App\Http\Controllers\HRDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeductionCategoryController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
 // APIs
 Route::prefix('/func')->group(function (){
 
-    // authentication
+    // Authentication
     Route::prefix('/auth')->group(function (){
         Route::post('/login', [UserController::class, 'login']);
         Route::get('/logout', [UserController::class, 'logout']);
@@ -58,6 +59,12 @@ Route::prefix('/func')->group(function (){
         Route::get('/get-all', [DeductionCategoryController::class, 'get_all']);
         Route::put('/edit', [DeductionCategoryController::class, 'edit']);
         Route::delete('/delete', [DeductionCategoryController::class, 'delete']);
+    });
+
+    // Employee
+    Route::prefix('/employee')->group(function (){
+        Route::post('/add', [EmployeeController::class, 'add']);
+        Route::get('/get-all', [EmployeeController::class, 'get_all']);
     });
 
 });

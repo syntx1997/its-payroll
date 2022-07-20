@@ -38,6 +38,7 @@ $(document).on('click', '#logout-btn', function (){
 function removeInputValidationErrors() {
     $('.alert').remove();
     $('.form-control').removeClass('is-invalid');
+    $('.custom-select').removeClass('is-invalid');
     $('.invalid-feedback').remove();
     $('#notification').html('');
 }

@@ -85,6 +85,7 @@
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Custom JS -->
+    <script> const BaseURl = '{{ env('APP_URL') }}'; </script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/global.js') }}"></script>
     <script src="{{ $js ?? '' }}"></script>
