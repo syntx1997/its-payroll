@@ -13,7 +13,7 @@
                     <span>Employees</span>
                 </li>
                 <li class="submenu">
-                    <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'employees' ? 'active' : '' }}" href="{{ $dashboardLink . 'employees' }}">All Employees</a></li>
                         <li><a href="timesheet.html">Timesheet</a></li>
@@ -24,7 +24,7 @@
                     <a href="#"><i class="la la-scissors"></i> <span> Deductions</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'deduction-categories' ? 'active' : '' }}" href="{{ $dashboardLink . 'deduction-categories' }}">Categories</a></li>
-                        <li><a href="tasks.html">Set By Employee</a></li>
+                        <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'employee-deductions' ? 'active' : '' }}" href="{{ $dashboardLink . 'employee-deductions' }}">Set By Employee</a></li>
                     </ul>
                 </li>
             </ul>

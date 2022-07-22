@@ -40,6 +40,7 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
         Route::get('/index', [HRDashboardController::class, 'index']);
         Route::get('/employees', [HRDashboardController::class, 'employees']);
         Route::get('/deduction-categories', [HRDashboardController::class, 'deduction_categories']);
+        Route::get('/employee-deductions', [HRDashboardController::class, 'employee_deductions']);
     });
 
 });
