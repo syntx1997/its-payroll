@@ -18,6 +18,10 @@ class DeductionController extends Controller
             'user_id' => 'required'
         ]);
 
+        if($validator->fails()){
+            return response(['errors' => $validator->errors()], 401);
+        }
+
         $ifExists = Deduction::where([
             'category_id' => $request->category_id,
             'user_id' => $request->user_id
@@ -32,10 +36,6 @@ class DeductionController extends Controller
                 'category_id' => $request->category_id,
                 'deduction' => $request->deduction,
             ]);
-        }
-
-        if($validator->fails()){
-            return response(['errors' => $validator->errors()], 401);
         }
 
         return response(['message' => 'Deduction set successfully']);

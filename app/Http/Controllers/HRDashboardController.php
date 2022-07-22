@@ -45,4 +45,14 @@ class HRDashboardController extends Controller
 
         return view('pages.hr.employee-deductions', $PageData);
     }
+
+    public function rates() {
+        $PageData = [
+            'title' => 'Employee Rates',
+            'js' => asset('js/dashboard/hr/rates.js'),
+            'dashboardLink' => '/dashboard/hr/'
+        ];
+
+        return view('pages.hr.rates', $PageData);
+    }
 }
