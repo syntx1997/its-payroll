@@ -8498,3 +8498,28 @@ ul.comment-list li ul.children {
 	justify-content: center;
 	font-size: 11px;
 }
+
+td.details-control {
+    background: url('/img/icons/arrow/icons8-forward-24.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('/img/icons/arrow/icons8-expand-arrow-24.png') no-repeat center center;
+}
+
+.odd.details-control {
+    background: url('/img/icons/arrow/icons8-forward-24.png') no-repeat center center;
+    cursor: pointer;
+}
+.odd.shown td.details-control {
+    background: url('/img/icons/arrow/icons8-expand-arrow-24.png') no-repeat center center;
+}
+
+.even.details-control {
+    background: url('/img/icons/arrow/icons8-forward-24.png') no-repeat center center;
+    cursor: pointer;
+}
+.even.shown td.details-control {
+    background: url('/img/icons/arrow/icons8-expand-arrow-24.png') no-repeat center center;
+}
+

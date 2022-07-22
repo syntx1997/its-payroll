@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeductionCategoryController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DeductionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,12 @@ Route::prefix('/func')->group(function (){
         Route::post('/add', [EmployeeController::class, 'add']);
         Route::get('/get-all', [EmployeeController::class, 'get_all']);
         Route::post('/edit', [EmployeeController::class, 'edit']);
+    });
+
+    // Employee Deduction
+    Route::prefix('/employee-deduction')->group(function (){
+        Route::post('/set', [DeductionController::class, 'set']);
+        Route::get('/get-all-employees', [DeductionController::class, 'get_all_employees']);
     });
 
 });

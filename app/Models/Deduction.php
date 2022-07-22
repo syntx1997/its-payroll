@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Deduction extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'deduction'
+    ];
 }
