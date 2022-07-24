@@ -89,6 +89,7 @@ Route::prefix('/func')->group(function (){
     // Sales Board
     Route::prefix('sales-board')->group(function (){
         Route::post('add', [SaleController::class, 'add']);
+        Route::get('get-all', [SaleController::class, 'get_all']);
     });
 
 });

@@ -134,34 +134,15 @@
         var form = '';
         var today = new Date($.now());
 
-        var defaultEvents =  [{
-                title: 'Event Name 4',
-                start: new Date($.now() + 148000000),
-                className: 'bg-purple'
-            },
-            {
-                title: 'Test Event 1',
-                start: today,
-                end: today,
-                className: 'bg-success'
-            },
-            {
-                title: 'Test Event 2',
-                start: new Date($.now() + 168000000),
-                className: 'bg-info'
-            },
-            {
-                title: 'Test Event 3',
-                start: new Date($.now() + 338000000),
-                className: 'bg-primary'
-            }];
+        var defaultEvents = '/func/sales-board/get-all';
 
         var $this = this;
         $this.$calendarObj = $this.$calendar.fullCalendar({
-            slotDuration: '00:15:00', /* If we want to split day time each 15minutes */
-            minTime: '08:00:00',
-            maxTime: '19:00:00',
-            defaultView: 'agendaWeek',
+            // slotDuration: '00:15:00', /* If we want to split day time each 15minutes */
+            // slotDuration: '00:01:00', /* If we want to split day time each 15minutes */
+            // minTime: '08:00:00',
+            // maxTime: '19:00:00',
+            defaultView: 'basicWeek',
             handleWindowResize: true,
             height: $(window).height() - 200,
             header: {
