@@ -55,4 +55,14 @@ class HRDashboardController extends Controller
 
         return view('pages.hr.rates', $PageData);
     }
+
+    public function sales_board() {
+        $PageData = [
+            'title' => 'Sales Board',
+            'js' => asset('js/dashboard/hr/sales-board.js'),
+            'dashboardLink' => '/dashboard/hr/'
+        ];
+
+        return view('pages.hr.sales-board', $PageData);
+    }
 }

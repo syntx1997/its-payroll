@@ -35,7 +35,7 @@ class RateController extends Controller
             $EmployeeRate = Rate::where('employee_id', $employee->id)->first();
             if($EmployeeRate) {
                 $rateBtn = <<<HERE
-                    <button id="set-rate-btn" type="button" $attribute data-rate="$EmployeeRate->rate" class="btn btn-link text-success">$EmployeeRate->rate</button>
+                    <button id="set-rate-btn" type="button" $attribute data-rate="$EmployeeRate->rate" class="btn btn-link text-success">₱$EmployeeRate->rate</button>
                 HERE;
 
             } else {

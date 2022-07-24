@@ -17,7 +17,7 @@
                     <ul style="display: none;">
                         <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'employees' ? 'active' : '' }}" href="{{ $dashboardLink . 'employees' }}">All Employees</a></li>
                         <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'rates' ? 'active' : '' }}" href="{{ $dashboardLink . 'rates' }}">Rates</a></li>
-                        <li><a href="shift-scheduling.html">Shift & Schedule</a></li>
+                        <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'sales-board' ? 'active' : '' }}" href="{{ $dashboardLink . 'sales-board' }}">Sales Board</a></li>
                     </ul>
                 </li>
                 <li class="submenu">

@@ -44,6 +44,7 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
         Route::get('/deduction-categories', [HRDashboardController::class, 'deduction_categories']);
         Route::get('/employee-deductions', [HRDashboardController::class, 'employee_deductions']);
         Route::get('/rates', [HRDashboardController::class, 'rates']);
+        Route::get('/sales-board', [HRDashboardController::class, 'sales_board']);
     });
 
 });

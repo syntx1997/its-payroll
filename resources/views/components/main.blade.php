@@ -27,6 +27,15 @@
         <!-- Chart CSS -->
         <link rel="stylesheet" href="{{ asset('plugins/morris/morris.css') }}">
 
+        <!-- Select2 CSS -->
+        <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+
+        <!-- Datetimepicker CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
+
+        <!-- Calendar CSS -->
+        <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
+
         <!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -83,6 +92,18 @@
     <!-- Datatable JS -->
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Select2 JS -->
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+
+    <!-- Datetimepicker JS -->
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+
+    <!-- Calendar JS -->
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.fullcalendar.js') }}"></script>
 
     <!-- Custom JS -->
     <script> const BaseURl = '{{ env('APP_URL') }}'; </script>
