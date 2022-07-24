@@ -8,6 +8,7 @@ use App\Http\Controllers\DeductionCategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\RateController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,11 @@ Route::prefix('/func')->group(function (){
     Route::prefix('/employee-rate')->group(function (){
         Route::post('/set', [RateController::class, 'set']);
         Route::get('/get-all-employees', [RateController::class, 'get_all_employees']);
+    });
+
+    // Sales Board
+    Route::prefix('sales-board')->group(function (){
+        Route::post('add', [SaleController::class, 'add']);
     });
 
 });
