@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\EmployeeDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,11 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
         Route::get('/employee-deductions', [HRDashboardController::class, 'employee_deductions']);
         Route::get('/rates', [HRDashboardController::class, 'rates']);
         Route::get('/sales-board', [HRDashboardController::class, 'sales_board']);
+    });
+
+    // Employee
+    Route::prefix('/employee')->group(function (){
+        Route::get('/index', [EmployeeDashboardController::class, 'index']);
     });
 
 });

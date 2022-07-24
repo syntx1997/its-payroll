@@ -8,7 +8,7 @@
                 <li class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'index' ? 'active' : '' }}">
                     <a href="{{ $dashboardLink .'index' }}"><i class="la la-dashboard"></i> <span>Dashboard</span></a>
                 </li>
-                <li clas
+                @if(auth()->user()->type == 'HR')
                 <li class="menu-title">
                     <span>Employees</span>
                 </li>
@@ -27,6 +27,11 @@
                         <li><a class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'employee-deductions' ? 'active' : '' }}" href="{{ $dashboardLink . 'employee-deductions' }}">Set By Employee</a></li>
                     </ul>
                 </li>
+                @elseif(auth()->user()->type == 'Employee')
+                <li class="{{ \Illuminate\Support\Facades\URL::current() == env('APP_URL') . $dashboardLink . 'payslips' ? 'active' : '' }}">
+                    <a href="{{ $dashboardLink .'payslips' }}"><i class="la la-file-excel"></i> <span>Payslips</span></a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>
