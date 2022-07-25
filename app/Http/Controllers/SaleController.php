@@ -34,7 +34,7 @@ class SaleController extends Controller
             $employee = Employee::where('id', $sale->employee_id)->first();
             $data[] = [
                 'e_id' => $sale->id,
-                'title' => $employee->firstname . ' ' . $employee->lastname . ' (' . $sale->quantity . ')',
+                'title' => $employee->firstname . ' ' . substr($employee->lastname, 0 , 1) . ' - ' . $sale->quantity,
                 'start' => $sale->created_at,
                 'end' => $sale->created_at,
                 'className' => 'primary'

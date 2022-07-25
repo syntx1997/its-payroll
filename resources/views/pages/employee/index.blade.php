@@ -51,13 +51,14 @@
         <div class="col-md-8">
             <div class="card att-statistics">
                 <div class="card-header">
-                    <button id="refresh-board-btn" type="button" class="btn btn-info float-right">
-                        <i class="la la-refresh"></i> Refresh Board
-                    </button>
                     <h5 class="card-title pb-0 mb-0"><strong>Sales Board</strong></h5>
                 </div>
                 <div class="card-body">
-                   <div id="calendar"></div>
+                    <button id="refresh-board-btn" type="button" class="btn btn-info float-right">
+                        <i class="la la-refresh"></i> Refresh Board
+                    </button>
+                   <div id="calendar">
+                   </div>
                 </div>
             </div>
         </div>

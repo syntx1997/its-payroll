@@ -149,6 +149,7 @@
                 left: 'prev,next today',
                 center: 'title',
                 // right: 'month,agendaWeek,agendaDay'
+                right: ''
             },
             events: defaultEvents,
             editable: true,

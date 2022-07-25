@@ -52,6 +52,7 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
     // Employee
     Route::prefix('/employee')->group(function (){
         Route::get('/index', [EmployeeDashboardController::class, 'index']);
+        Route::get('/payslips', [EmployeeDashboardController::class, 'payslips']);
     });
 
 });
