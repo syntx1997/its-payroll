@@ -10,6 +10,7 @@ use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\EmployeeDashboardController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,11 @@ Route::prefix('/func')->group(function (){
     Route::prefix('sales-board')->group(function (){
         Route::post('add', [SaleController::class, 'add']);
         Route::get('get-all', [SaleController::class, 'get_all']);
+    });
+
+    Route::prefix('/attendance')->group(function (){
+        Route::post('/punch', [AttendanceController::class, 'punch']);
+        Route::get('/get-all', [AttendanceController::class, 'get_all']);
     });
 
 });

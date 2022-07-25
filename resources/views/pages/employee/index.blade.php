@@ -16,28 +16,16 @@
                         </div>
                     </div>
                     <div class="punch-btn-section">
-                        <button type="button" class="btn btn-primary punch-btn">Punch Out</button>
-                    </div>
-                    <div class="statistics">
-                        <div class="row">
-                            <div class="col-md-6 col-6 text-center">
-                                <div class="stats-box">
-                                    <p>Break</p>
-                                    <h6>1.21 hrs</h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-6 text-center">
-                                <div class="stats-box">
-                                    <p>Overtime</p>
-                                    <h6>3 hrs</h6>
-                                </div>
-                            </div>
-                        </div>
+                        @if(\Carbon\Carbon::parse(now())->format('H') > 22)
+                            <button type="button" class="btn btn-light punch-btn">Punch</button>
+                        @else
+                            <button id="punch-btn" type="button" class="btn btn-primary punch-btn">Punch</button>
+                        @endif
                     </div>
                 </div>
             </div>
 
-            <table class="table table-striped border">
+            <table id="attendance-table" class="table table-striped border bg-white">
                 <thead>
                 <tr>
                     <th class="text-center">Date</th>
