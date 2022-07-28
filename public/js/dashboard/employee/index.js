@@ -9,7 +9,7 @@ $(function (){
             {
                 'className': 'text-center',
                 'orderable': false,
-                'data': 'created_at'
+                'data': 'date'
             },
             {
                 'className': 'text-center',
@@ -49,7 +49,8 @@ $(function (){
             type: 'POST',
             dataType: 'JSON',
             success: function (){
-                $(that).html('Punch');
+                $(that).html('<i class="la la-fingerprint"></i> Punch');
+                reloadDataTable(attendanceTable);
             }
         });
     });

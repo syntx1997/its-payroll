@@ -48,6 +48,8 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
         Route::get('/employee-deductions', [HRDashboardController::class, 'employee_deductions']);
         Route::get('/rates', [HRDashboardController::class, 'rates']);
         Route::get('/sales-board', [HRDashboardController::class, 'sales_board']);
+        Route::get('/attendance', [HRDashboardController::class, 'attendance']);
+        Route::get('/payslips', [HRDashboardController::class, 'payslips']);
     });
 
     // Employee
@@ -100,9 +102,11 @@ Route::prefix('/func')->group(function (){
         Route::get('get-all', [SaleController::class, 'get_all']);
     });
 
+    // Attendance
     Route::prefix('/attendance')->group(function (){
         Route::post('/punch', [AttendanceController::class, 'punch']);
         Route::get('/get-all', [AttendanceController::class, 'get_all']);
+        Route::get('/get-all-employees', [AttendanceController::class, 'get_all_employees']);
     });
 
 });

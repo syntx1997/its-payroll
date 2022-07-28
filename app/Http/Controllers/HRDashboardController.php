@@ -65,4 +65,24 @@ class HRDashboardController extends Controller
 
         return view('pages.hr.sales-board', $PageData);
     }
+
+    public function attendance() {
+        $PageData = [
+            'title' => 'Attendance',
+            'js' => asset('js/dashboard/hr/attendance.js'),
+            'dashboardLink' => '/dashboard/hr/'
+        ];
+
+        return view('pages.hr.attendance', $PageData);
+    }
+
+    public function payslips() {
+        $PageData = [
+            'title' => 'Payslips',
+            'js' => asset('js/dashboard/hr/payslips.js'),
+            'dashboardLink' => '/dashboard/hr/'
+        ];
+
+        return view('pages.hr.payslips', $PageData);
+    }
 }
