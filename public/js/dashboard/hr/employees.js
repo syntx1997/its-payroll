@@ -49,6 +49,11 @@ $(function (){
             {
                 'className': 'text-center',
                 'orderable': false,
+                'data': 'department'
+            },
+            {
+                'className': 'text-center',
+                'orderable': false,
                 'data': 'actions'
             },
         ],
@@ -83,6 +88,7 @@ $(function (){
                     fieldValidation(formInput(addForm, 'input', 'birthday'), error.birthday);
                     fieldValidation(formInput(addForm, 'textarea', 'address'), error.address);
                     fieldValidation(formInput(addForm, 'input', 'designation'), error.designation);
+                    fieldValidation(formInput(addForm, 'input', 'department'), error.department);
                     fieldValidation(formInput(addForm, 'input', 'email'), error.email);
                     fieldValidation(formInput(addForm, 'input', 'contact'), error.contact);
                     fieldValidation(formInput(addForm, 'input', 'password'), error.password);
@@ -136,6 +142,7 @@ $(function (){
                     fieldValidation(formInput(editForm, 'input', 'birthday'), error.birthday);
                     fieldValidation(formInput(editForm, 'textarea', 'address'), error.address);
                     fieldValidation(formInput(editForm, 'input', 'designation'), error.designation);
+                    fieldValidation(formInput(editForm, 'input', 'department'), error.department);
                     fieldValidation(formInput(editForm, 'input', 'email'), error.email);
                     fieldValidation(formInput(editForm, 'input', 'contact'), error.contact);
                     fieldValidation(formInput(editForm, 'input', 'password'), error.password);
@@ -175,6 +182,7 @@ $(document).on('click', '#edit-btn', function (){
     formInput(editForm, 'input', 'birthday').val(data.birthday);
     formInput(editForm, 'textarea', 'address').val(data.address);
     formInput(editForm, 'input', 'designation').val(data.designation);
+    formInput(editForm, 'input', 'department').val(data.department);
     formInput(editForm, 'input', 'email').val(data.email);
     formInput(editForm, 'input', 'contact').val(data.contact);
     formInput(editForm, 'input', 'id').val(data.id);

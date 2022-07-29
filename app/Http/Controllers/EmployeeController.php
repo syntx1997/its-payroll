@@ -18,6 +18,7 @@ class EmployeeController extends Controller
             'birthday' => 'required',
             'address' => 'required',
             'designation' => 'required',
+            'department' => 'required',
             'email' => 'required',
             'contact' => 'required',
             'password' => 'required'
@@ -53,6 +54,7 @@ class EmployeeController extends Controller
             'address' => $request->address,
             'contact' => $request->contact,
             'designation' => $request->designation,
+            'department' => $request->department,
             'avatar' => $avatar
         ]);
 
@@ -89,6 +91,7 @@ class EmployeeController extends Controller
                 data-address="$employee->address"
                 data-contact="$employee->contact"
                 data-designation="$employee->designation"
+                data-department="$employee->department"
                 data-avatar="$employee->avatar"
                 data-email="$user->email"
             HERE;
@@ -112,6 +115,7 @@ class EmployeeController extends Controller
                 'address' => $employee->address,
                 'contact' => $employee->contact,
                 'designation' => $employee->designation,
+                'department' => $employee->department,
                 'avatar' => $employee->avatar,
                 'email' => $user->email,
                 'avatar_html' => $avatar_html,
@@ -131,6 +135,7 @@ class EmployeeController extends Controller
             'birthday' => 'required',
             'address' => 'required',
             'designation' => 'required',
+            'department' => 'required',
             'email' => 'required',
             'contact' => 'required',
             'id' => 'required'
@@ -148,6 +153,7 @@ class EmployeeController extends Controller
             'birthday' => $request->birthday,
             'address' => $request->address,
             'designation' => $request->designation,
+            'department' => $request->department,
             'email' => $request->email,
             'contact' => $request->contact,
             'id' => $request->id

@@ -27,6 +27,7 @@
                         <th class="text-center">Email</th>
                         <th class="text-center">Contact</th>
                         <th class="text-center">Designation</th>
+                        <th class="text-center">Department</th>
                         <th class="text-center"></th>
                     </tr>
                     </thead>
@@ -110,6 +111,12 @@
                                 <label class="col-sm-12 col-md-3 col-lg-3">Designation</label>
                                 <div class="col-sm-12 col-md-9 col-lg-9">
                                     <input type="text" name="designation" class="form-control" placeholder="Enter employee designation">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-md-3 col-lg-3">Department</label>
+                                <div class="col-sm-12 col-md-9 col-lg-9">
+                                    <input type="text" name="department" class="form-control" placeholder="Enter employee designation">
                                 </div>
                             </div>
                         </div>
@@ -219,6 +226,12 @@
                                 <label class="col-sm-12 col-md-3 col-lg-3">Designation</label>
                                 <div class="col-sm-12 col-md-9 col-lg-9">
                                     <input type="text" name="designation" class="form-control" placeholder="Enter employee designation">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-md-3 col-lg-3">Department</label>
+                                <div class="col-sm-12 col-md-9 col-lg-9">
+                                    <input type="text" name="department" class="form-control" placeholder="Enter employee designation">
                                 </div>
                             </div>
                         </div>

@@ -25,6 +25,7 @@ class CreateEmployeesTable extends Migration
             $table->string('address');
             $table->string('contact');
             $table->string('designation');
+            $table->string('department');
             $table->string('avatar')->nullable();
             $table->timestamps();
         });

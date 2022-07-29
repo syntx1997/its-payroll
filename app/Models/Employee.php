@@ -19,6 +19,7 @@ class Employee extends Model
         'address',
         'contact',
         'designation',
+        'department',
         'avatar'
     ];
 }
