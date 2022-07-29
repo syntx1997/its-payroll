@@ -17,13 +17,30 @@
 
     <div class="card">
         <div class="card-body">
-
+            <div class="table-responsive">
+                <table id="payslip-table" class="table table-striped border" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Designation</th>
+                        <th class="text-center">Department</th>
+                        <th class="text-center">Start Date</th>
+                        <th class="text-center">End Date</th>
+                        <th class="text-center">Days Worked</th>
+                        <th class="text-center">Total Earnings</th>
+                        <th class="text-center">Total Deductions</th>
+                        <th class="text-center">Total Net</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 
     <div id="generate-slip-modal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <form id="generate-slip-form" class="modal-content">
+                @csrf
                 <div class="modal-header">
                     <h5 class="modal-title"><i class="fa fa-plus"></i> New Payslip</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -79,29 +96,33 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label>Days Worked:</label>
+                            <input type="text" name="days_worked" class="form-control col-md-4" value="0" readonly>
+                        </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="card">
-                                    <div class="card-header text-center">Earnings</div>
-                                    <ul class="list-group list-group-flush">
+                                    <div class="card-header text-center bg-light">Earnings</div>
+                                    <ul class="list-group list-group-flush" id="earnings-list">
                                         <li class="list-group-item">
                                             <strong>Gross Pay</strong>
                                             <span class="float-right">
-                                                ₱<span id="gross-txt">00.00</span>
-                                            </span>
+                                            ₱<span id="gross-txt">00.00</span>
+                                        </span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="card">
-                                    <div class="card-header text-center">Deductions</div>
-                                    <ul class="list-group list-group-flush">
+                                    <div class="card-header text-center bg-light">Deductions</div>
+                                    <ul class="list-group list-group-flush" id="deductions-list">
                                         <li class="list-group-item">
                                             <strong>Total Deductions</strong>
                                             <span class="float-right">
-                                                ₱<span id="tdeductions-txt">00.00</span>
-                                            </span>
+                                            ₱<span id="tdeductions-txt">00.00</span>
+                                        </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -118,6 +139,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="days">
+                    <input type="hidden" name="name">
+                    <input type="hidden" name="gross">
+                    <input type="hidden" name="deductions">
+                    <input type="hidden" name="net">
                     <button type="submit" class="btn btn-secondary">Create</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\RateController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\EmployeeDashboardController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\PayslipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,13 @@ Route::prefix('/func')->group(function (){
         Route::post('/punch', [AttendanceController::class, 'punch']);
         Route::get('/get-all', [AttendanceController::class, 'get_all']);
         Route::get('/get-all-employees', [AttendanceController::class, 'get_all_employees']);
+    });
+
+    // Payslip
+    Route::prefix('/payslip')->group(function (){
+        Route::post('/compute', [PayslipController::class, 'compute']);
+        Route::post('/create', [PayslipController::class, 'create']);
+        Route::get('/get-all', [PayslipController::class, 'get_all']);
     });
 
 });

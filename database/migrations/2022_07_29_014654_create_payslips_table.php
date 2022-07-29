@@ -15,7 +15,7 @@ class CreatePayslipsTable extends Migration
     {
         Schema::create('payslips', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('employee_id');
+            $table->string('employee_id');
             $table->string('name');
             $table->string('department');
             $table->string('designation');

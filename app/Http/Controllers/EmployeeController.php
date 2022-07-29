@@ -174,6 +174,7 @@ class EmployeeController extends Controller
         $empl = Employee::where('id', $request->id)->first();
         $salary = Rate::where('employee_id', $empl->id)->first();
         $employee = [
+            'name' => $empl->firstname . ' ' . $empl->lastname,
             'employee_id' => $empl->employee_id,
             'designation' => $empl->designation,
             'department' => $empl->department,
