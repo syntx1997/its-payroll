@@ -67,6 +67,54 @@
                                 <input type="text" name="basic_salary" class="form-control" readonly>
                             </div>
                         </div>
+                        <hr>
+                        <div class="form-group">
+                            <label>Salary Date:</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="date" name="start_date" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" name="end_date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-header text-center">Earnings</div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <strong>Gross Pay</strong>
+                                            <span class="float-right">
+                                                ₱<span id="gross-txt">00.00</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-header text-center">Deductions</div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <strong>Total Deductions</strong>
+                                            <span class="float-right">
+                                                ₱<span id="tdeductions-txt">00.00</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body bg-dark text-white">
+                                <strong>Net Pay</strong>
+                                <span class="float-right">
+                                    ₱<span id="net-txt">00.00</span>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

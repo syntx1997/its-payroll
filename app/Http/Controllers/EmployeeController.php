@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Models\Rate;
 
 class EmployeeController extends Controller
 {
@@ -167,5 +168,18 @@ class EmployeeController extends Controller
         $employee->update($fields);
 
         return response(['message' => 'Employee Updated Successfully!']);
+    }
+
+    public function get_employee(Request $request) {
+        $empl = Employee::where('id', $request->id)->first();
+        $salary = Rate::where('employee_id', $empl->id)->first();
+        $employee = [
+            'employee_id' => $empl->employee_id,
+            'designation' => $empl->designation,
+            'department' => $empl->department,
+            'basic_salary' => $salary->rate ?? 00.00
+        ];
+
+        return response(['employee' => $employee]);
     }
 }

@@ -24,6 +24,9 @@ class CreatePayslipsTable extends Migration
             $table->date('end_date');
             $table->integer('days');
             $table->integer('days_worked');
+            $table->double('gross');
+            $table->double('deductions');
+            $table->double('net');
             $table->timestamps();
         });
     }

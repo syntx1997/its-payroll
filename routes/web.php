@@ -82,6 +82,7 @@ Route::prefix('/func')->group(function (){
         Route::post('/add', [EmployeeController::class, 'add']);
         Route::get('/get-all', [EmployeeController::class, 'get_all']);
         Route::post('/edit', [EmployeeController::class, 'edit']);
+        Route::post('/get', [EmployeeController::class, 'get_employee']);
     });
 
     // Employee Deduction
