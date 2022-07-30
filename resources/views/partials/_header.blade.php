@@ -28,8 +28,13 @@
     <ul class="nav user-menu">
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img src="{{ asset('img/profiles/avatar-21.jpg') }}" alt="">
-							<span class="status online"></span></span>
+                <span class="user-img">
+                    @if(auth()->user()->type == 'HR')
+                        <img src="{{ asset('img/user.jpg') }}" alt="">
+                    @else
+                        <img src="{{ $avatar }}" alt="">
+                    @endif
+                </span>
                 <span>{{ auth()->user()->name }}</span>
             </a>
             <div class="dropdown-menu">

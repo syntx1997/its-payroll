@@ -12,6 +12,8 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\EmployeeDashboardController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\PayslipController;
+use App\Http\Controllers\EmployeeSettingController;
+use App\Http\Controllers\HRSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,6 +121,23 @@ Route::prefix('/func')->group(function (){
         Route::post('/create', [PayslipController::class, 'create']);
         Route::get('/get-all', [PayslipController::class, 'get_all']);
         Route::get('/get-employee-slip', [PayslipController::class, 'get_employee_slip']);
+    });
+
+    // Settings
+    Route::prefix('/settings')->group(function (){
+
+        // Employee Settings
+        Route::prefix('/employee')->group(function (){
+            Route::post('/update-password', [EmployeeSettingController::class, 'update_password']);
+            Route::post('/update-info', [EmployeeSettingController::class, 'update_info']);
+        });
+
+        // HR Settings
+        Route::prefix('/hr')->group(function (){
+            Route::post('/update-password', [HRSettingController::class, 'update_password']);
+            Route::post('/update-info', [HRSettingController::class, 'update_info']);
+        });
+
     });
 
 });

@@ -1,4 +1,4 @@
-<x-main :title="$title" :js="$js" :dashboardLink="$dashboardLink">
+<x-main :title="$title" :js="$js" :dashboardLink="$dashboardLink" :avatar="$avatar">
 
     <div class="page-header">
         <div class="row align-items-center">
