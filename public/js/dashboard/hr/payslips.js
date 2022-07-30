@@ -14,6 +14,8 @@ const grossTxt = $('#gross-txt');
 const tDeductionTxt = $('#tdeductions-txt');
 const tNetTxt = $('#net-txt');
 
+const viewPayslipModal = $('#view-payslip-modal');
+
 const payslipTable = $('#payslip-table');
 
 const api = '/func/payslip/';
@@ -53,22 +55,7 @@ $(function (){
             {
                 'className': 'text-center',
                 'orderable': false,
-                'data': 'days_worked'
-            },
-            {
-                'className': 'text-center',
-                'orderable': false,
-                'data': 'gross'
-            },
-            {
-                'className': 'text-center',
-                'orderable': false,
-                'data': 'deductions'
-            },
-            {
-                'className': 'text-center',
-                'orderable': false,
-                'data': 'net'
+                'data': 'actions'
             }
         ]
     });
@@ -91,13 +78,7 @@ $(function (){
                 formInput(generateSlipForm, 'input', 'name').val(employee.name);
                 employeeInfo.show();
 
-                $('#earnings-list li').not('li:last').remove();
-                $('#deductions-list li').not('li:last').remove();
-                grossTxt.text('00.00');
-                tDeductionTxt.text('00.00');
-                tNetTxt.text('00.00');
-                daysWorkField.val(0);
-                generateSlipSubmitBtn.attr('disabled', 'disabled');
+                resetComputation();
             },
             error: function (err){
                 const errJSON = err.responseJSON;
@@ -136,13 +117,7 @@ $(function (){
                 reloadDataTable(payslipTable);
                 resetForm(generateSlipForm);
 
-                $('#earnings-list li').not('li:last').remove();
-                $('#deductions-list li').not('li:last').remove();
-                grossTxt.text('00.00');
-                tDeductionTxt.text('00.00');
-                tNetTxt.text('00.00');
-                daysWorkField.val(0);
-                generateSlipSubmitBtn.attr('disabled', 'disabled');
+                resetComputation();
             },
             error: function (err){
                 const errJSON = err.responseJSON;
@@ -221,3 +196,66 @@ function computeSalary(startDate, endDate, employeeId){
         }
     });
 }
+
+function resetComputation() {
+    $('#view-earnings-list li').not('li:last').remove();
+    $('#view-deductions-list li').not('li:last').remove();
+
+    $('#earnings-list li').not('li:last').remove();
+    $('#deductions-list li').not('li:last').remove();
+    grossTxt.text('00.00');
+    tDeductionTxt.text('00.00');
+    tNetTxt.text('00.00');
+    daysWorkField.val(0);
+    generateSlipSubmitBtn.attr('disabled', 'disabled');
+}
+
+$(document).on('click', '#view-payslip-btn', function (){
+    resetComputation();
+    const data = $(this).data();
+    const computation = data.computations;
+    const employee = data.employee;
+
+    $('#view-month-txt').text(computation.month);
+    $('#view-employee-id-txt').text(employee.employee_id);
+    $('#view-department-txt').text(employee.department);
+    $('#view-designation-txt').text(employee.designation);
+    $('#view-basic-salary-txt').text(employee.basic_salary);
+    $('#view-employee-name-txt').text(employee.name);
+    $('#view-salary-date-txt').text(computation.start_date + ' - ' + computation.end_date);
+    $('#view-days-txt').text(computation.days);
+    $('#view-days-worked-txt').text(computation.days_worked);
+    $('#view-gross-txt').text(computation.total_gross);
+    $('#view-tdeductions-txt').text(computation.total_deduction);
+    $('#view-net-txt').text(computation.total_net);
+
+    const earnings = computation.gross;
+    for(let i = 0; i < earnings.length; i++) {
+        $('#view-earnings-list').prepend(
+            `
+                        <li class="list-group-item">
+                            ${earnings[i]['name']}
+                            <span class="float-right">
+                                ₱${earnings[i]['amount']}
+                            </span>
+                        </li>
+                    `
+        );
+    }
+
+    const deductions = computation.deductions;
+    for(let i = 0; i < deductions.length; i++) {
+        $('#view-deductions-list').prepend(
+            `
+                        <li class="list-group-item">
+                            ${deductions[i]['name']}
+                            <span class="float-right">
+                                ₱${deductions[i]['deduction']}
+                            </span>
+                        </li>
+                    `
+        );
+    }
+
+    showModal(viewPayslipModal);
+});
