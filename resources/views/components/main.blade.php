@@ -105,6 +105,12 @@
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('js/jquery.fullcalendar.js') }}"></script>
 
+    <!-- JSPdf -->
+    <script src="{{ asset('js/jspdf.js') }}"></script>
+
+    <!-- HTML2Canvas -->
+    <script src="{{ asset('js/html2canvas.min.js') }}"></script>
+
     <!-- Custom JS -->
     <script> const BaseURl = '{{ env('APP_URL') }}'; </script>
     <script src="{{ asset('js/app.js') }}"></script>

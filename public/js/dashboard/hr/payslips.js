@@ -259,3 +259,19 @@ $(document).on('click', '#view-payslip-btn', function (){
 
     showModal(viewPayslipModal);
 });
+
+$(document).on('click', '#download-payslip-btn', function (){
+    const pdf = new jsPDF('p', 'mm', 'letter');
+    var firstPage;
+    const that = this;
+
+    $(that).html(spinner + ' Downloading');
+    html2canvas($('.export-pdf'), {
+        onrendered: function (canvas){
+            firstPage = canvas.toDataURL('image/png', 1.0);
+            pdf.addImage(firstPage, 'PNG', 0, 0, 216, 0);
+            pdf.save('payslip.pdf');
+            $(that).html('<i class="la la-file-download"></i> Download Payslip');
+        }
+    });
+});
