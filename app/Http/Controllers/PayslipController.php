@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Payslip;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Attendance;
 use App\Models\Rate;
@@ -164,5 +165,50 @@ class PayslipController extends Controller
         $data['total_net'] = ($data['total_gross'] - $data['total_deduction']);
 
         return $data;
+    }
+
+    public function get_employee_slip() {
+        $data = [];
+
+        $employee = Employee::where('user_id', Auth::user()->id)->first();
+
+        $payslips = Payslip::where('employee_id', $employee->employee_id)->get();
+        foreach ($payslips as $payslip) {
+
+            $employee = Employee::where('employee_id', $payslip->employee_id)->first();
+            $computation =  htmlspecialchars(json_encode($this->get_computation([
+                'employee_id' => $employee->id,
+                'start_date' => $payslip->start_date,
+                'end_date' => $payslip->end_date
+            ])), ENT_QUOTES, 'UTF-8');
+
+            $btnAttribute = 'data-computations="'. $computation .'" data-employee="'. htmlspecialchars(json_encode($payslip), ENT_QUOTES, 'UTF-8') .'"';
+
+            $actions = <<<HERE
+                <button id="view-payslip-btn" type="button" class="btn btn-link text-danger" $btnAttribute>
+                    <li class="la la-file-invoice-dollar"></li> View Slip
+                </button>
+            HERE;
+
+
+            $data[] = [
+                'id' => $payslip->id,
+                'employee_id' => $payslip->employee_id,
+                'name' => $payslip->name,
+                'department' => $payslip->department,
+                'designation' => $payslip->designation,
+                'basic_salary' => $payslip->basic_salary,
+                'start_date' => $payslip->start_date,
+                'end_date' => $payslip->end_date,
+                'days' => $payslip->days,
+                'days_worked' => $payslip->days_worked,
+                'gross' => $payslip->gross,
+                'deductions' => $payslip->deductions,
+                'net' => $payslip->net,
+                'actions' => $actions
+            ];
+        }
+
+        return response(['data' => $data], 201);
     }
 }

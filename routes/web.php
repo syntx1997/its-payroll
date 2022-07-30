@@ -51,12 +51,14 @@ Route::middleware('auth')->prefix('/dashboard')->group(function (){
         Route::get('/sales-board', [HRDashboardController::class, 'sales_board']);
         Route::get('/attendance', [HRDashboardController::class, 'attendance']);
         Route::get('/payslips', [HRDashboardController::class, 'payslips']);
+        Route::get('/settings', [HRDashboardController::class, 'settings']);
     });
 
     // Employee
     Route::prefix('/employee')->group(function (){
         Route::get('/index', [EmployeeDashboardController::class, 'index']);
         Route::get('/payslips', [EmployeeDashboardController::class, 'payslips']);
+        Route::get('/settings', [EmployeeDashboardController::class, 'settings']);
     });
 
 });
@@ -116,6 +118,7 @@ Route::prefix('/func')->group(function (){
         Route::post('/compute', [PayslipController::class, 'compute']);
         Route::post('/create', [PayslipController::class, 'create']);
         Route::get('/get-all', [PayslipController::class, 'get_all']);
+        Route::get('/get-employee-slip', [PayslipController::class, 'get_employee_slip']);
     });
 
 });

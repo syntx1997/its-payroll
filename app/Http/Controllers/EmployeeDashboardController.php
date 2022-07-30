@@ -55,4 +55,14 @@ class EmployeeDashboardController extends Controller
 
         return view('pages.employee.payslips', $PageData);
     }
+
+    public function settings() {
+        $PageData = [
+            'title' => 'settings',
+            'js' => asset('js/dashboard/employee/settings.js'),
+            'dashboardLink' => '/dashboard/employee/'
+        ];
+
+        return view('pages.employee.settings', $PageData);
+    }
 }

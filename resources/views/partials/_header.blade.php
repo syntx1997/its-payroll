@@ -33,8 +33,7 @@
                 <span>{{ auth()->user()->name }}</span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
+                <a class="dropdown-item" href="{{ $dashboardLink . 'settings' }}">Settings</a>
                 <a class="dropdown-item" href="#logout" id="logout-btn">Logout</a>
             </div>
         </li>

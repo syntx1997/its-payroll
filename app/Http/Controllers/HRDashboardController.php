@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 class HRDashboardController extends Controller
 {
     public function index() {
-        $PageData = [
-            'title' => 'HR Dashboard',
-            'js' => asset('js/dashboard/hr/index.js'),
-            'dashboardLink' => '/dashboard/hr/'
-        ];
-
-        return view('pages.hr.index', $PageData);
+//        $PageData = [
+//            'title' => 'HR Dashboard',
+//            'js' => asset('js/dashboard/hr/index.js'),
+//            'dashboardLink' => '/dashboard/hr/'
+//        ];
+//
+//        return view('pages.hr.index', $PageData);
+        return redirect('/dashboard/hr/sales-board');
     }
 
     public function employees() {
@@ -84,5 +85,15 @@ class HRDashboardController extends Controller
         ];
 
         return view('pages.hr.payslips', $PageData);
+    }
+
+    public function settings() {
+        $PageData = [
+            'title' => 'Settings',
+            'js' => asset('js/dashboard/hr/settings.js'),
+            'dashboardLink' => '/dashboard/hr/'
+        ];
+
+        return view('pages.hr.settings', $PageData);
     }
 }
