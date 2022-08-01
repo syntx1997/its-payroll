@@ -35,12 +35,10 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="export-pdf">
-                    <div class="card bg-danger text-white text-center">
-                        <div class="card-body">
-                            <h5><strong>PAYSLIP</strong></h5>
-                        </div>
-                    </div>
                     <div class="modal-body">
+                        <img class="float-right" src="{{ asset('img/ind-logo-round.png') }}" width="60px">
+                        <h4 class="text-center font-weight-bold">INDEPENDENT TELEMARKETING SERVICES</h4>
+                        <h5 class="text-center font-weight-bold font-italic mb-5">Payslip</h5>
                         <h4 class="text-center modal-title mb-5"><strong>For the Month of <span class="text-danger" id="view-month-txt"></span></strong></h4>
                         <div class="row">
                             <div class="col-6">
@@ -147,13 +145,23 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-body bg-dark text-white">
+                            <div class="card-body bg-light text-dark">
                                 <strong>Net Pay</strong>
                                 <span class="float-right">
                                 <u>
                                     ₱<span id="view-net-txt">00.00</span>
                                 </u>
                             </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                ___________________________ <br>
+                                HR OFFICER
+                            </div>
+                            <div class="col-6 text-center">
+                                ___________________________ <br>
+                                SIGNATURE
                             </div>
                         </div>
                     </div>
