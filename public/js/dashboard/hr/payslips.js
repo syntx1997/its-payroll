@@ -135,6 +135,7 @@ $(function (){
 });
 
 function computeSalary(startDate, endDate, employeeId){
+    resetComputation();
     $.ajax({
         url: api + 'compute',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},

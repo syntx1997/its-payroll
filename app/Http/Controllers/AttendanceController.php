@@ -16,7 +16,7 @@ class AttendanceController extends Controller
         $currentTime = Carbon::parse(now())->format('H:i:s');
 
         // check if there's existing attendance today
-        $ifExistsToday = Attendance::where('employee_id', $employee->id)->whereDate('created_at', DB::raw('CURDATE()'))->get();
+        $ifExistsToday = Attendance::where('employee_id', $employee->id)->whereDate('created_at', DB::raw('CURDATE()'))->first();
 
         $lastAttendance = Attendance::where('employee_id', $employee->id)->orderBy('id', 'DESC')->first();
         if($lastAttendance && $lastAttendance->time_out == null) {
@@ -26,7 +26,7 @@ class AttendanceController extends Controller
             return response(['message' => 'Punched out!'], 201);
         }
 
-        if($lastAttendance && $lastAttendance->time_in != null && $lastAttendance->time_out != null) {
+        if($lastAttendance && $lastAttendance->time_in != null && $lastAttendance->time_out != null && $ifExistsToday) {
             return response(['message' => 'You already have an attendance for this day!'], 201);
         }
 
@@ -34,6 +34,7 @@ class AttendanceController extends Controller
             'employee_id' => $employee->id,
             'time_in' => $currentTime
         ]);
+
 
         return response(['message' => 'Punched in!'], 201);
     }
